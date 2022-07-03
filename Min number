@@ -1,23 +1,21 @@
 import java.util.Scanner;
 
-public class main {
+public class minNumber_07 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        int minNumber = Integer.MAX_VALUE;
+
         String input = scan.nextLine();
 
-        int minValue = Integer.MAX_VALUE;
-
         while (!input.equals("Stop")){
-
             int number = Integer.parseInt(input);
 
-            if (number < minValue){
-                minValue = number;
+            if (number < minNumber){
+                minNumber = number;
             }
             input = scan.nextLine();
         }
-        System.out.println(minValue);
-
+        System.out.println(minNumber);
     }
 }
