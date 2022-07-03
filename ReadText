@@ -1,15 +1,16 @@
 import java.util.Scanner;
 
-public class main {
+public class readText_01 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        String input = scan.nextLine();
+        String text = "Stop";
 
-        while (!input.equals("Stop")){
+        String input = scan.nextLine();
+        while (!input.equals(text)){
             System.out.println(input);
             input = scan.nextLine();
-
         }
     }
 }
+
