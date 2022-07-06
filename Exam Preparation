@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int badGrades = Integer.parseInt(scan.nextLine());
+
+        double averageGrade = 0;
+        int numberOfProblems = 0;
+        int counterForBadGrade = 0;
+        String lastProblem = "";
+        int counter = 0;
+        boolean isFailed = false;
+
+        String nameOfProblem = scan.nextLine();
+
+        while (!nameOfProblem.equals("Enough")){
+            String input = nameOfProblem;
+            int grade = Integer.parseInt(scan.nextLine());
+
+            if (grade <= 4){
+                counterForBadGrade ++;
+                if (counterForBadGrade == badGrades){
+                    isFailed = true;
+                    break;
+                }
+            }
+            lastProblem = nameOfProblem;
+            averageGrade = averageGrade + grade;
+            counter ++;
+            
+            nameOfProblem = scan.nextLine();
+        }
+
+        if (isFailed){
+            System.out.printf("You need a break, %d poor grades.",counterForBadGrade);
+        }else {
+            System.out.printf("Average score: %.2f%n", averageGrade/counter);
+            System.out.printf("Number of problems: %d%n", counter);
+            System.out.printf("Last problem: %s", lastProblem);
+        }
+    }
+
+}
