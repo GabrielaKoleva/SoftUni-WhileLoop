@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class oldBooks_01 {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        String neededBook = scan.nextLine();
+
+        int counterBook = 0;
+        boolean noMoreBooks = false;
+
+        String checkedBook = scan.nextLine();
+
+        while (!checkedBook.equals(neededBook)){
+            String input = checkedBook;
+
+            if (input.equals("No More Books")){
+                noMoreBooks = true;
+                break;
+            }
+
+            counterBook ++;
+            checkedBook = scan.nextLine();
+
+        }
+
+        if (noMoreBooks){
+            System.out.printf("The book you search is not here!%n" +
+                    "You checked %d books.", counterBook);
+        }else {
+            System.out.printf("You checked %d books and found it.", counterBook);
+        }
+    }
+}
