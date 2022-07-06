@@ -24,7 +24,7 @@ public class main {
         }
 
         if (foundBook) {
-            System.out.printf("You checked %d books and found it.", counter);
+            System.out.printf("You checked %d books and found it.",counter);
         } else {
             System.out.printf("The book you search is not here!%nYou checked %d books.",
                     counter);
