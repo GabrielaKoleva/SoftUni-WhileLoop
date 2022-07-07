@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+import static java.lang.Double.parseDouble;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+     String command = scan.nextLine();
+
+     int makingSteps = 0;
+     int targetSteps = 10000;
+
+     while (!command.equals("Going home")){
+         int steps = Integer.parseInt(command);
+         makingSteps += steps;
+
+         if (makingSteps >= targetSteps){
+             break;
+         }
+         command = scan.nextLine();
+     }
+     if (command.equals("Going home")){
+         int homeSteps = Integer.parseInt(scan.nextLine());
+         makingSteps += homeSteps;
+     }
+
+     int diff = Math.abs(makingSteps - targetSteps);
+
+     if (makingSteps >= targetSteps){
+         System.out.printf("Goal reached! Good job!%n" +
+                 "%d steps over the goal!", diff);
+     }else{
+         System.out.printf("%d more steps to reach goal.", diff);
+     }
+    }
+
+}
