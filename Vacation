@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+import static java.lang.Double.parseDouble;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+       double needMoney = parseDouble(scan.nextLine());
+       double availableMoney = parseDouble(scan.nextLine());
+
+       int counter = 0;
+       int counterSpendMoney = 0;
+       boolean spendMoney = false;
+      
+
+       while (needMoney > availableMoney){
+           if (counterSpendMoney >= 5){
+               spendMoney = true;
+               break;
+           }
+           String input = scan.nextLine();
+           double money = parseDouble(scan.nextLine());
+
+           counter ++;
+
+           if (input.equals("spend")){
+               availableMoney = availableMoney - money;
+               counterSpendMoney ++;
+               if (availableMoney < 0){
+                   availableMoney = 0;
+               }
+           }else if (input.equals("save")){
+               availableMoney = availableMoney + money;
+               counterSpendMoney = 0;
+           }
+       }
+       if (spendMoney){
+           System.out.printf("You can't save the money.%n%d", counter);
+       }else {
+           System.out.printf("You saved the money for %d days.", counter);
+       }
+    }
+
+}
